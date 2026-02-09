@@ -1,0 +1,48 @@
+.globalArchitecture {
+  position: relative;
+  margin-top: 10rem;
+
+  &__h3 {
+    margin-top: 1.5rem;
+  }
+
+  &__countryCards {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 12px;
+    margin-top: 5rem;
+  }
+
+  &__img {
+    width: 36px;
+    height: 40px;
+    object-fit: contain;
+    margin-bottom: 12px;
+  }
+
+  &__bg {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -100;
+    width: 30%;
+  }
+
+  &__map {
+    margin: 0 auto;
+  }
+
+  &__promptWrapper {
+    display: flex;
+  }
+
+  &__hoverPrompt {
+    margin: 3rem auto 9.375rem auto;
+    font-size: 2.25rem;
+    color: var(--textColor);
+    font-family: var(--fontRegular);
+  }
+}

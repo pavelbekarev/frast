@@ -1,0 +1,92 @@
+.question {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 0.5fr 0.075fr;
+  justify-content: space-between;
+  min-height: 25rem;
+  max-height: 30rem;
+  border-top: 1px solid var(--backgroundColor);
+
+  padding: 3rem 0;
+  transition: all 0.3s ease;
+
+  &:last-child {
+    border-bottom: 1px solid var(--backgroundColor);
+  }
+
+  &--opened {
+    background-color: var(--backgroundColor);
+    border-radius: 3rem;
+    padding: 3rem 2rem;
+  }
+
+  &__questNumber {
+    font-size: 2rem;
+  }
+
+  &__textWrapper {
+    display: inline-flex;
+    flex-direction: column;
+  }
+
+  &__text {
+    color: var(--accentColor);
+  }
+
+  &__answer {
+    position: absolute;
+    z-index: -1;
+    bottom: 10%;
+    transform: translateY(25%);
+    font-size: 2rem;
+    opacity: 0;
+    color: var(--textColor);
+    transition: transform 0.3s ease;
+
+    &--visible {
+      z-index: 1;
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+
+  &__toggleButtonWrapper {
+    position: relative;
+    width: 20%;
+    height: 20%;
+  }
+
+  &__toggleButton {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.answerAppear {
+  &-enter-active,
+  &-leave-active {
+    transition: opacity 0.3s ease;
+  }
+
+  &-enter-from,
+  &-leave-to {
+    display: block;
+  }
+}
+
+.resizeQuestion {
+  &-enter-active,
+  &-leave-active {
+    transition: opacity 0.3s ease;
+  }
+
+  &-enter-from,
+  &-leave-to {
+    height: 20rem;
+  }
+
+  &-enter-to,
+  &-leave-from {
+    height: 30rem;
+  }
+}

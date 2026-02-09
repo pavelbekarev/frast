@@ -1,0 +1,129 @@
+.productDetails {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  background-color: #fff;
+
+  padding: 3rem;
+  min-width: 260px;
+  height: 460px;
+  border-radius: 3rem;
+  transition: all 0.3s ease;
+
+  -webkit-box-shadow: 0px 2px 12px 0px rgba(20, 34, 81, 0.12);
+  -moz-box-shadow: 0px 2px 12px 0px rgba(20, 34, 81, 0.12);
+  box-shadow: 0px 2px 12px 0px rgba(20, 34, 81, 0.12);
+
+  &:hover {
+    -webkit-box-shadow: 0px 2px 12px 0px rgba(20, 34, 81, 0.9);
+    -moz-box-shadow: 0px 2px 12px 0px rgba(20, 34, 81, 0.9);
+    box-shadow: 0px 2px 12px 0px rgba(20, 34, 81, 0.9);
+  }
+
+  &--popular {
+    outline: 2px solid var(--accentColor);
+    height: 520px;
+    overflow: visible;
+
+    &::before {
+      content: "Популярный";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: auto;
+      padding: 0rem 2rem;
+      border-radius: 3rem;
+      background-color: var(--accentColor);
+      color: #fff;
+      font-size: 2rem;
+    }
+  }
+
+  &__title {
+    font-family: var(--fontSemiBold);
+    font-size: 3rem;
+    color: var(--accentColor);
+  }
+
+  &__text {
+    font-family: var(--fontRegular);
+    font-size: 18px;
+    text-align: center;
+    color: var(--textColor);
+    line-height: 20px;
+    letter-spacing: 0;
+  }
+
+  &__price {
+    font-family: var(--fontRegular);
+    font-size: 2rem;
+    color: var(--textColor);
+    line-height: 160%;
+    letter-spacing: -3%;
+
+    &--large {
+      font-family: var(--fontSemiBold);
+      color: var(--accentColor);
+      font-size: 30px;
+      font-weight: 900;
+    }
+  }
+
+  &__advantages {
+    margin-top: 3rem;
+    overflow-y: auto;
+    height: 45%;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    gap: 12px;
+    width: 100%;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+    font-size: 14px;
+    color: var(--textColor);
+  }
+
+  &__button {
+    position: absolute;
+    bottom: 5%;
+    width: 90%;
+    font-size: 2rem;
+    outline: none;
+    color: var(--accentColor);
+    background-color: var(--backgroundColor);
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--accentColor);
+      color: #fff;
+    }
+
+    &--popular {
+      background-color: var(--accentColor) !important;
+      color: #fff;
+
+      &:hover {
+        background-color: var(--backgroundColor) !important;
+        color: var(--accentColor);
+      }
+    }
+  }
+}
+
+.checkmark {
+  width: 20px;
+  height: 20px;
+}

@@ -1,0 +1,26 @@
+.interactiveMap {
+  z-index: 100;
+  margin-top: 5rem;
+
+  &__point {
+    width: 5%;
+    border: 1px solid red;
+  }
+
+  &__label {
+    color: #fff;
+    font-size: 1px;
+  }
+}
+
+.textAppear {
+  &-enter-active,
+  &-leave-active {
+    transition: all 0.15s ease;
+  }
+
+  &-enter-from,
+  &-leave-to {
+    opacity: 0;
+  }
+}
