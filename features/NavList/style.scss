@@ -17,4 +17,8 @@
       color: var(--accentColor);
     }
   }
+
+  @media (max-width: 650px) {
+    flex-direction: column;
+  }
 }

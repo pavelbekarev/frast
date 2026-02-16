@@ -5,5 +5,10 @@
     flex-direction: row;
     justify-content: space-between;
     gap: 2.5rem;
+
+    @media (max-width: 1240px) {
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
   }
 }

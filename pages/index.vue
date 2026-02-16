@@ -5,6 +5,7 @@ import PriceList from '~/widgets/PriceList';
 import AboutCompany from '~/widgets/AboutCompany';
 import FAQ from '~/widgets/FAQ';
 import FeedbackDetails from '~/widgets/FeedbackDetails';
+import Footer from '~/widgets/Footer';
 </script>
 <template>
     <Header />
@@ -28,33 +29,42 @@ import FeedbackDetails from '~/widgets/FeedbackDetails';
             </div>
         </section>
         <section class="feedbackDetailsSection container">
-                <FeedbackDetails />
+            <FeedbackDetails />
         </section>
     </main>
+    <Footer />
 </template>
 <style scoped lang="scss">
-.main {
-    height: 100vh;
-}
-
 .priceListSection {
     height: 100vh;
-    padding-top: 10rem;
+    padding: 10rem 0;
     background-color: #F4F8FE;
+
+    @media (max-width: 1240px) {
+        height: 100%;
+    }
 }
 
 .aboutCompanySection {
     height: 50vh;
+
+    @media (max-width: 610px) {
+        height: auto;
+    }
 }
 
 .faqSection {
-    height: 100vh;
-    padding-top: 10rem;
+    height: 100%;
+    padding: 10rem 0;
 }
 
 .feedbackDetailsSection {
     position: relative;
-    margin-top: 10rem;
     height: 100vh;
+
+    @media (max-width: 670px) {
+        height: auto;
+        margin: 10rem 0;
+    }
 }
 </style>

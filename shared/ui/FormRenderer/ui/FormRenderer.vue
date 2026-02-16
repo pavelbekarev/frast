@@ -2,6 +2,7 @@
 import Button from "../../Button";
 import "../style.scss";
 import type { IFormField } from "~/entities/FormField/types/IFormField";
+import PhoneInput from "~/features/PhoneInput/ui/PhoneInput.vue";
 
 const props = defineProps<{
     fields: IFormField[]
@@ -25,54 +26,35 @@ const onSubmit = () => {
     emit('submit', { ...values })
 }
 
-const textTypes = props.fields.filter((item: IFormField) => item.type === 'text')
-const otherTypes = props.fields.filter((item: IFormField) => item.type !== 'text')
+
 </script>
 <template>
     <form class="formRenderer" @submit.prevent="onSubmit">
-        <div v-if="textTypes.length > 0" class="textType">
-            <template v-for="field in textTypes">
-                <div class="formRenderer__item">
-                    <label class="formRenderer__label" :for="field.name">{{ field.label }}</label>
-                    <input 
-                        :id="field.name"
-                        type="text"
-                        class="formRenderer__input"
-                        :name="field.name" 
-                        :placeholder="field.placeholder" 
-                        :required="field.required" 
-                        @input="updateValue(field.name, ($event.target as HTMLInputElement).value)"
-                    >
-                </div>
-            </template>
-        </div>
-        <template v-for="field in otherTypes" :key="field.id">
-            <div class="formRenderer__item" :class="field.type === 'checkbox' && 'formRenderer__item--row'">
+        <slot>
+            <div class="formRenderer__item" :class="field.type === 'checkbox' && 'formRenderer__item--row'" v-for="field in fields" :key="field.id">
                 <label class="formRenderer__label" v-if="field.type !== 'text' && field.type !== 'checkbox'" :for="field.name">
                     {{ field.label }}
                 </label>
-                <div v-if="field.type === 'text'">
-                    <input 
-                        :id="field.name"
-                        type="text"
-                        class="formRenderer__input"
-                        :name="field.name" 
-                        :placeholder="field.placeholder" 
-                        :required="field.required" 
-                        @input="updateValue(field.name, ($event.target as HTMLInputElement).value)"
-                    >
-                </div>
-                <template v-if="field.type === 'textarea'" >
-                    <textarea 
-                        :id="field.name"
-                        type="textarea"
-                        class="formRenderer__input formRenderer__input--textarea"
-                        :name="field.name"
-                        :placeholder="field.placeholder"  
-                        :required="field.required"
-                        @input="updateValue(field.name, ($event.target as HTMLInputElement).value)"
-                    />
-                </template>
+                <input 
+                    v-if="field.type === 'text' && field.name !== 'phone'"
+                    :id="field.name"
+                    type="text"
+                    class="formRenderer__input"
+                    :name="field.name" 
+                    :placeholder="field.placeholder" 
+                    :required="field.required" 
+                    @input="updateValue(field.name, ($event.target as HTMLInputElement).value)"
+                >
+                <textarea 
+                    v-else-if="field.type === 'textarea'"
+                    :id="field.name"
+                    type="textarea"
+                    class="formRenderer__input formRenderer__input--textarea"
+                    :name="field.name"
+                    :placeholder="field.placeholder"  
+                    :required="field.required"
+                    @input="updateValue(field.name, ($event.target as HTMLInputElement).value)"
+                />
                 <template v-else-if="field.type === 'checkbox'" >
                     <label class="formRenderer__label" :for="field.name">{{ field.label }}</label>
                     <input 
@@ -106,8 +88,18 @@ const otherTypes = props.fields.filter((item: IFormField) => item.type !== 'text
                         </span>
                     </div>
                 </div>
+
+                <!-- кастомный инпут -->
+                <slot
+                    v-else
+                    :name="field.name"
+                    :field="field"
+                    :value="values[field.name]"
+                    :updateValue="(value: unknown) => updateValue(field.name, value)"
+                />
             </div>
-        </template>
+        </slot>
+
         <Button class="formRenderer__button">Оставить заявку</Button>
     </form>
 </template>

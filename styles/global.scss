@@ -15,14 +15,14 @@ html {
   overflow: scroll;
   overflow-x: hidden;
 }
-::-webkit-scrollbar {
-  width: 0px;
-  background: transparent;
-}
+// ::-webkit-scrollbar {
+//   width: 0px;
+//   background: transparent;
+// }
 
-::-webkit-scrollbar-thumb {
-  background: #ff0000;
-}
+// ::-webkit-scrollbar-thumb {
+//   background: #ff0000;
+// }
 
 .headline {
   font-family: var(--fontMedium);
@@ -37,6 +37,10 @@ html {
   &--text {
     color: var(--textColor);
   }
+
+  @media (max-width: 420px) {
+    font-size: 6rem;
+  }
 }
 
 .subtitle {
@@ -47,6 +51,10 @@ html {
 
   &--h2 {
     font-size: 4rem;
+
+    @media (max-width: 420px) {
+      font-size: 3rem;
+    }
   }
 
   &--h3 {
@@ -69,4 +77,8 @@ html {
   max-width: 1820px;
   // background-color: rgba(255, 192, 203, 0.3);
   margin: 0 auto;
+
+  @media (max-width: 1670px) {
+    padding: 0 2rem;
+  }
 }

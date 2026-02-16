@@ -31,8 +31,7 @@ export const contactFormFields: IFormField[] = [
   {
     id: "agreePolicy",
     name: "agreePolicy",
-    label:
-      "Я даю согласие на обработку персональных данных в соответствии с политикой конфиденциальности",
+    label: "Согласен с политикой конфиденциальности",
     type: "checkbox",
     required: true,
   },

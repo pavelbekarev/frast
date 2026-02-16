@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import FeedbackForm from "~/features/FeedbackForm";
+import { contactFormFields } from "~/entities/FormField/model/contactFormFields";
 import "../style.scss";
+import FeedbackForm from "~/features/FeedbackForm";
 </script>
 <template>
     <div class="feedbackDetails">
@@ -11,7 +12,7 @@ import "../style.scss";
             </h3>
         </div>
         <div class="feedbackDetails__form">
-            <FeedbackForm />
+            <FeedbackForm :fields="contactFormFields" />
         </div>
     </div>
 </template>

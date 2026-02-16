@@ -9,28 +9,25 @@ import ContentBar from '~/widgets/ContentBar';
 import lightIcon from "~/public/assets/lightIcon.svg"
 import shieldIcon from "~/public/assets/shieldIcon.svg"
 import serverIcon from "~/public/assets/serverIcon.svg"
-import turkey from "~/public/assets/turkey.png"
-import russia from "~/public/assets/russia.png"
-import kz from "~/public/assets/kz.png"
-import sing from "~/public/assets/sing.png"
-import oae from "~/public/assets/oae.png"
+import FlagsRow from "~/shared/ui/FlagsRow";
+
+const burgerActive = ref<boolean>(false);
 </script>
 <template>
     <header class="header__wrapper">
         <div class="countryLabel">
             <span class="countryLabel__text">Мощные серверы<br/> в 5 странах</span>
-            <div class="countryLabel__flags">
-                <img :src="turkey" alt="Флаг Турции">
-                <img :src="russia" alt="Флаг РФ">
-                <img :src="kz" alt="Флаг Казахстана">
-                <img :src="sing" alt="Флаг Сингапура">
-                <img :src="oae" alt="Флаг ОАЭ">
-            </div>
+            <FlagsRow class="countryLabel__flags" />
         </div>
         <div class="container header">
             <div class="header__head">
                 <Logo />
-                <div class="header__contentBarWrapper">
+                <div class="burger" :class="{ 'burger--active': burgerActive }" @click="burgerActive = !burgerActive">
+                    <span class="burger__line"></span>
+                    <span class="burger__line"></span>
+                    <span class="burger__line"></span>
+                </div>
+                <div class="header__contentBarWrapper" :class="burgerActive && 'header__contentBarWrapper--expanded'">
                     <ContentBar>
                         <template #content>
                             <NavList />

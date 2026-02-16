@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import "../style.scss";
-import bg1 from "~/public/assets/aboutCompanyBg1.png";
-import bg2 from "~/public/assets/aboutCompanyBg2.png";
 </script>
 <template>
     <div class="aboutCompany">

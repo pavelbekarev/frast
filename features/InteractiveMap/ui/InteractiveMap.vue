@@ -11,13 +11,13 @@ const { handleClick, handleMouseEnter, handleMouseLeave } = useCountryPointStore
 <template>
     <div class="interactiveMap">
         <svg 
-            viewBox="0 0 75 20"
+            :viewBox="'0 0 75 20'"
             preserveAspectRatio="xMidYMid meet"
         >
             <image 
                 href="../../../public/assets/mapVectors.svg" 
-                width="75" 
-                height="20"
+                :width="'75'" 
+                :height="'20'"
                 preserveAspectRatio="xMidYMid meet"
             />
             <g 
@@ -36,6 +36,7 @@ const { handleClick, handleMouseEnter, handleMouseLeave } = useCountryPointStore
                         @mouseleave="handleMouseLeave"
                         @click="handleClick(point.id)"
                     />
+                    
                 </Transition>
                 <Transition name="textAppear">
                     <text  

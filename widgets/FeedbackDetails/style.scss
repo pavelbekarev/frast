@@ -6,6 +6,16 @@
   height: 75%;
   padding: 3.1rem 5rem;
 
+  @media (max-width: 1270px) {
+    flex-direction: column;
+    height: auto;
+    gap: 5rem;
+  }
+
+  @media (max-width: 670px) {
+    padding: 3rem 2rem;
+  }
+
   &::after {
     content: "";
     position: absolute;
@@ -36,22 +46,33 @@
 
   &__title {
     color: #fff;
+    font-size: 5rem;
   }
 
   &__subtitle {
     color: #fff;
     font-weight: 100;
+    font-size: 2.5rem;
   }
 
   &__head {
     display: flex;
     flex-direction: column;
     gap: 5rem;
+
+    @media (max-width: 670px) {
+      margin-top: 5rem;
+      gap: 2rem;
+    }
   }
 
   &__form {
     width: 40%;
     background-color: #fff;
     border-radius: 3rem;
+
+    @media (max-width: 1270px) {
+      width: 100%;
+    }
   }
 }
